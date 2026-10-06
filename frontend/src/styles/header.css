@@ -1,0 +1,120 @@
+/* Header palette and layout, scoped to the existing header markup. */
+#app > header {
+  --header-background: #fffdf8;
+  --header-ink: #122c2c;
+  --header-accent: #f26849;
+
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  padding: 24px 40px;
+  background: var(--header-background);
+  color: var(--header-ink);
+  color-scheme: light;
+  text-align: left;
+  font-family: var(--sans, system-ui, sans-serif);
+}
+
+/* Keep the image mark and company name together. */
+#app > header .header-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+#app > header .header-brand img {
+  display: block;
+  flex-shrink: 0;
+}
+
+#app > header h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.8px;
+}
+
+#navigation {
+  min-width: 0;
+}
+
+#navigation ul {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#navigation button {
+  box-sizing: border-box;
+  min-height: 44px;
+  padding: 8px 0;
+  border: 0;
+  background: transparent;
+  color: var(--header-ink);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+#navigation button:hover {
+  color: var(--header-accent);
+}
+
+#navigation button:focus-visible {
+  outline: 2px solid var(--header-accent);
+  outline-offset: 5px;
+  border-radius: 4px;
+}
+
+/* The primary action uses the prototype's dark pill shape. */
+#navigation #navigation-start-project {
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: var(--header-ink);
+  color: var(--header-background);
+}
+
+#navigation #navigation-start-project:hover {
+  background: #244747;
+}
+
+/* Keep links visible while the mobile menu behavior is still being built. */
+@media (max-width: 760px) {
+  #app > header {
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 20px 24px;
+  }
+
+  #navigation {
+    width: 100%;
+  }
+
+  #navigation ul {
+    justify-content: flex-start;
+    gap: 8px 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  #app > header {
+    padding-inline: 16px;
+  }
+
+  #navigation ul {
+    gap: 8px 16px;
+  }
+}
