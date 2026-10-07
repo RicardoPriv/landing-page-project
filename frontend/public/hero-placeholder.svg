@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="580" viewBox="0 0 560 580" fill="none">
+  <!-- Simple abstract placeholder in the site's cream, green and coral palette. -->
+  <rect width="560" height="580" rx="12" fill="#EDEEE4"/>
+  <path d="M40 100H520M40 200H520M40 300H520M40 400H520M40 500H520M80 40V540M180 40V540M280 40V540M380 40V540M480 40V540" stroke="#D7DDD0"/>
+  <circle cx="280" cy="290" r="210" stroke="#B5C3B4"/>
+  <circle cx="280" cy="290" r="158" stroke="#B5C3B4"/>
+  <rect x="136" y="156" width="288" height="288" rx="28" fill="#122C2C"/>
+  <path d="M208 372V242C208 202 240 170 280 170C320 170 352 202 352 242V372" stroke="#F26849" stroke-width="46"/>
+  <path d="M208 372V280C208 240 240 208 280 208C320 208 352 240 352 280V372" stroke="#FFFDF8" stroke-width="2"/>
+  <circle cx="432" cy="134" r="46" fill="#F26849"/>
+  <path d="M413 153L451 115M413 115H451V153" stroke="#FFFDF8" stroke-width="2"/>
+  <circle cx="128" cy="448" r="30" fill="#C1D4C2"/>
+  <path d="M128 435V461M115 448H141" stroke="#122C2C" stroke-width="2"/>
+</svg>
