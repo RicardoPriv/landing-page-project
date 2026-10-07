@@ -1,10 +1,27 @@
 /* Header palette and layout, scoped to the existing header markup. */
+:root {
+  --header-height: 92px;
+}
+
+#app {
+  padding-top: var(--header-height);
+}
+
+html {
+  scroll-padding-top: var(--header-height);
+}
+
 #app > header {
   --header-background: #fffdf8;
   --header-ink: #122c2c;
   --header-accent: #f26849;
 
   box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  height: var(--header-height);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -93,6 +110,10 @@
 
 /* Keep links visible while the mobile menu behavior is still being built. */
 @media (max-width: 760px) {
+  :root {
+    --header-height: 128px;
+  }
+
   #app > header {
     flex-wrap: wrap;
     gap: 16px;
@@ -106,6 +127,13 @@
   #navigation ul {
     justify-content: flex-start;
     gap: 8px 20px;
+  }
+}
+
+/* Reserve a second navigation row on narrow phones. */
+@media (max-width: 480px) {
+  :root {
+    --header-height: 180px;
   }
 }
 

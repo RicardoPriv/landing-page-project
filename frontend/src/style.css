@@ -1,5 +1,6 @@
 @import './styles/header.css';
 @import './styles/hero.css';
+@import './styles/about.css';
 
 :root {
   --text: #6b6375;

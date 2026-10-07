@@ -4,8 +4,8 @@
   --hero-muted: #9badaa;
   --hero-accent: #f26849;
   box-sizing: border-box;
-  /* Fill the viewport space left by the header in #app's column layout. */
-  flex: 1;
+  /* Keep a full first screen even when more sections follow. */
+  min-height: calc(100svh - var(--header-height));
   position: relative;
   isolation: isolate;
   overflow: hidden;
