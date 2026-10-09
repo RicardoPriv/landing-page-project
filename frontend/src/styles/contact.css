@@ -1,0 +1,145 @@
+/* Coral contact panel with the prototype's oversized circular outline. */
+#contact-section {
+  --contact-ink: #122c2c;
+  --contact-cream: #fffdf8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 112px 40px;
+  background: #f26849;
+  color: var(--contact-cream);
+  color-scheme: light;
+  text-align: center;
+}
+
+#contact-section::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: -280px;
+  left: 50%;
+  width: 800px;
+  height: 800px;
+  box-sizing: border-box;
+  border: 1px solid #fffdf830;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+#contact-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 2px;
+}
+
+#contact-header::before {
+  content: '';
+  width: 24px;
+  height: 2px;
+  flex-shrink: 0;
+  background: var(--contact-cream);
+}
+
+#contact-title {
+  max-width: 900px;
+  margin: 32px 0 44px;
+  color: var(--contact-cream);
+  font-size: clamp(44px, 6.3vw, 88px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.055em;
+}
+
+#contact-title span {
+  display: block;
+  color: var(--contact-ink);
+  font-style: italic;
+}
+
+#contact-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-height: 52px;
+  padding: 16px 28px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--contact-cream);
+  color: var(--contact-ink);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+#contact-button::after {
+  content: '→';
+  font-size: 18px;
+}
+
+#contact-button:hover {
+  background: var(--contact-ink);
+  color: var(--contact-cream);
+}
+
+#contact-button:focus-visible {
+  outline: 2px solid var(--contact-ink);
+  outline-offset: 5px;
+}
+
+#contact-blurb {
+  display: block;
+  max-width: 420px;
+  margin-top: 20px;
+  font-size: 11px;
+  font-style: italic;
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  #contact-section {
+    padding-block: 88px;
+  }
+}
+
+@media (max-width: 760px) {
+  #contact-section {
+    padding: 72px 24px;
+  }
+
+  #contact-section::before {
+    top: -120px;
+    width: 560px;
+    height: 560px;
+  }
+
+  #contact-title {
+    margin: 28px 0 36px;
+  }
+}
+
+@media (max-width: 400px) {
+  #contact-section {
+    padding-inline: 16px;
+  }
+
+  #contact-header {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+}
