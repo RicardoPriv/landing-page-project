@@ -4,6 +4,7 @@
 @import './styles/services.css';
 @import './styles/testimonials.css';
 @import './styles/contact.css';
+@import './styles/footer.css';
 
 :root {
   --text: #6b6375;
