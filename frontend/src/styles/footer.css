@@ -1,13 +1,9 @@
 /* Footer palette and four columns from the footer reference. */
 #footer-section {
-  --footer-ink: #fffdf8;
-  --footer-muted: #9badaa;
-  --footer-accent: #f26849;
   box-sizing: border-box;
-  padding: 72px max(40px, calc((100% - 1130px) / 2)) 28px;
-  background: #0a2020;
-  color: var(--footer-muted);
-  color-scheme: light;
+  padding: 72px var(--section-inset) 28px;
+  background: var(--color-footer);
+  color: var(--color-muted-on-dark);
   text-align: left;
 }
 
@@ -23,7 +19,7 @@
 
 #footer-links-text-title {
   margin: 0 0 24px;
-  color: var(--footer-ink);
+  color: var(--color-cream);
   font-size: 22px;
   font-weight: 600;
   line-height: 1.2;
@@ -40,7 +36,7 @@
 #footer-section .footer-links-headings {
   display: block;
   margin-bottom: 24px;
-  color: var(--footer-accent);
+  color: var(--color-coral);
   font-size: 10px;
   font-weight: 600;
   line-height: 1.5;
@@ -87,7 +83,7 @@
   display: block;
   width: 18px;
   height: 18px;
-  color: var(--footer-muted);
+  color: var(--color-muted-on-dark);
   font-size: 9px;
   object-fit: contain;
 }
@@ -129,11 +125,11 @@
 }
 
 #footer-section a:hover {
-  color: var(--footer-accent);
+  color: var(--color-coral);
 }
 
 #footer-section a:focus-visible {
-  outline: 2px solid var(--footer-accent);
+  outline: 2px solid var(--color-coral);
   outline-offset: 5px;
 }
 
@@ -150,7 +146,7 @@
 
 @media (max-width: 760px) {
   #footer-section {
-    padding: 56px 24px 24px;
+    padding: 56px var(--page-gutter) 24px;
   }
 
   #footer-section .footer-line-horizontal {
@@ -166,11 +162,5 @@
 
   #footer-links-follow {
     grid-column: 1 / -1;
-  }
-}
-
-@media (max-width: 400px) {
-  #footer-section {
-    padding-inline: 16px;
   }
 }

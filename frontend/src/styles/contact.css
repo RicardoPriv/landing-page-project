@@ -1,7 +1,5 @@
 /* Coral contact panel with the prototype's oversized circular outline. */
 #contact-section {
-  --contact-ink: #122c2c;
-  --contact-cream: #fffdf8;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,10 +7,9 @@
   isolation: isolate;
   overflow: hidden;
   box-sizing: border-box;
-  padding: 112px 40px;
-  background: #f26849;
-  color: var(--contact-cream);
-  color-scheme: light;
+  padding: 112px var(--page-gutter);
+  background: var(--color-coral);
+  color: var(--color-cream);
   text-align: center;
 }
 
@@ -32,28 +29,13 @@
 }
 
 #contact-header {
-  display: flex;
-  align-items: center;
   justify-content: center;
-  gap: 12px;
-  font-size: 11px;
-  font-weight: 600;
-  line-height: 1.5;
-  letter-spacing: 2px;
-}
-
-#contact-header::before {
-  content: '';
-  width: 24px;
-  height: 2px;
-  flex-shrink: 0;
-  background: var(--contact-cream);
 }
 
 #contact-title {
   max-width: 900px;
   margin: 32px 0 44px;
-  color: var(--contact-cream);
+  color: var(--color-cream);
   font-size: clamp(44px, 6.3vw, 88px);
   font-weight: 400;
   line-height: 1.05;
@@ -62,7 +44,7 @@
 
 #contact-title span {
   display: block;
-  color: var(--contact-ink);
+  color: var(--color-green);
   font-style: italic;
 }
 
@@ -77,8 +59,8 @@
   padding: 16px 28px;
   border: 0;
   border-radius: 999px;
-  background: var(--contact-cream);
-  color: var(--contact-ink);
+  background: var(--color-cream);
+  color: var(--color-green);
   font: inherit;
   font-size: 13px;
   font-weight: 600;
@@ -93,12 +75,12 @@
 }
 
 #contact-button:hover {
-  background: var(--contact-ink);
-  color: var(--contact-cream);
+  background: var(--color-green);
+  color: var(--color-cream);
 }
 
 #contact-button:focus-visible {
-  outline: 2px solid var(--contact-ink);
+  outline: 2px solid var(--color-green);
   outline-offset: 5px;
 }
 
@@ -119,7 +101,7 @@
 
 @media (max-width: 760px) {
   #contact-section {
-    padding: 72px 24px;
+    padding: 72px var(--page-gutter);
   }
 
   #contact-section::before {
@@ -134,10 +116,6 @@
 }
 
 @media (max-width: 400px) {
-  #contact-section {
-    padding-inline: 16px;
-  }
-
   #contact-header {
     font-size: 10px;
     letter-spacing: 1.5px;

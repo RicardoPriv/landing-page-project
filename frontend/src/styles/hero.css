@@ -1,18 +1,14 @@
 /* Dark studio palette from the hero reference. */
 #hero-section {
-  --hero-ink: #fffdf8;
-  --hero-muted: #9badaa;
-  --hero-accent: #f26849;
   box-sizing: border-box;
   /* Keep a full first screen even when more sections follow. */
   min-height: calc(100svh - var(--header-height));
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding: 88px 40px 30px;
-  background: #122c2c;
-  color: var(--hero-ink);
-  color-scheme: light;
+  padding: 88px var(--page-gutter) 30px;
+  background: var(--color-green);
+  color: var(--color-cream);
   text-align: left;
 }
 
@@ -26,7 +22,7 @@
   height: 720px;
   border: 1px solid #f2684930;
   border-radius: 50%;
-  box-shadow: 0 0 0 110px #122c2c, 0 0 0 111px #f2684920;
+  box-shadow: 0 0 0 110px var(--color-green), 0 0 0 111px #f2684920;
   pointer-events: none;
 }
 
@@ -35,7 +31,7 @@
   grid-template-columns: 1fr 1.05fr;
   align-items: center;
   gap: 72px;
-  max-width: 1130px;
+  max-width: var(--content-width);
   margin: 0 auto;
 }
 
@@ -44,28 +40,13 @@
 }
 
 #hero-text-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: var(--hero-accent);
-  font-size: 11px;
-  font-weight: 600;
-  line-height: 1.5;
-  letter-spacing: 2px;
-}
-
-#hero-text-header::before {
-  content: '';
-  width: 24px;
-  height: 2px;
-  flex-shrink: 0;
-  background: var(--hero-accent);
+  color: var(--color-coral);
 }
 
 #hero-title {
   max-width: 540px;
   margin: 30px 0;
-  color: var(--hero-ink);
+  color: var(--color-cream);
   font-size: clamp(56px, 7.4vw, 104px);
   font-weight: 400;
   line-height: 1.02;
@@ -75,7 +56,7 @@
 #hero-title span {
   display: block;
   margin: 12px 0;
-  color: var(--hero-accent);
+  color: var(--color-coral);
   font-family: Georgia, 'Times New Roman', serif;
   font-style: italic;
   letter-spacing: -0.065em;
@@ -84,7 +65,7 @@
 #hero-subtitle {
   display: block;
   max-width: 490px;
-  color: var(--hero-muted);
+  color: var(--color-muted-on-dark);
   font-size: 16px;
   line-height: 1.75;
 }
@@ -104,7 +85,7 @@
   border: 0;
   border-radius: 999px;
   background: transparent;
-  color: var(--hero-ink);
+  color: var(--color-cream);
   font: inherit;
   font-size: 13px;
   font-weight: 500;
@@ -113,8 +94,8 @@
 }
 
 #hero-nevigation-buttons #hero-navigate-contact {
-  background: var(--hero-accent);
-  color: #fffdf8;
+  background: var(--color-coral);
+  color: var(--color-cream);
 }
 
 #hero-navigate-contact::after {
@@ -132,15 +113,15 @@
   border-radius: 0;
   text-decoration: underline;
   text-underline-offset: 7px;
-  text-decoration-color: #9badaa;
+  text-decoration-color: var(--color-muted-on-dark);
 }
 
 #hero-navigate-services:hover {
-  color: var(--hero-accent);
+  color: var(--color-coral);
 }
 
 #hero-nevigation-buttons button:focus-visible {
-  outline: 2px solid var(--hero-accent);
+  outline: 2px solid var(--color-coral);
   outline-offset: 4px;
 }
 
@@ -149,14 +130,14 @@
   gap: 2px;
   margin-top: 42px;
   padding-left: 16px;
-  border-left: 3px solid var(--hero-accent);
-  color: var(--hero-muted);
+  border-left: 3px solid var(--color-coral);
+  color: var(--color-muted-on-dark);
   font-size: 11px;
   line-height: 1.6;
 }
 
 #hero-slogan span:first-child {
-  color: var(--hero-ink);
+  color: var(--color-cream);
   font-weight: 600;
 }
 
@@ -173,7 +154,7 @@
   bottom: -12px;
   width: 72%;
   height: 48%;
-  background: var(--hero-accent);
+  background: var(--color-coral);
   transform: rotate(3deg);
 }
 
@@ -185,7 +166,7 @@
   height: auto;
   aspect-ratio: 0.84;
   object-fit: cover;
-  border: 9px solid #fffdf8;
+  border: 9px solid var(--color-cream);
   border-radius: 0;
   background: #edeee4;
   transform: rotate(-1.5deg);
@@ -199,7 +180,7 @@
   justify-content: center;
   gap: 10px;
   margin-top: 60px;
-  color: var(--hero-muted);
+  color: var(--color-muted-on-dark);
 }
 
 #hero-scroll-animation {
@@ -227,7 +208,7 @@
 
 @media (max-width: 760px) {
   #hero-section {
-    padding: 40px 24px 24px;
+    padding: 40px var(--page-gutter) 24px;
   }
 
   #hero-text-img-container {
@@ -252,11 +233,5 @@
 
   #hero-scroll-desc {
     margin-top: 32px;
-  }
-}
-
-@media (max-width: 400px) {
-  #hero-section {
-    padding-inline: 16px;
   }
 }

@@ -1,33 +1,14 @@
 /* Service rows follow the reference's dark green section. */
 #services-section {
-  --services-ink: #fffdf8;
-  --services-muted: #9badaa;
-  --services-accent: #f26849;
   box-sizing: border-box;
-  padding: 104px max(40px, calc((100% - 1130px) / 2));
-  background: #122c2c;
-  color: var(--services-ink);
-  color-scheme: light;
+  padding: 104px var(--section-inset);
+  background: var(--color-green);
+  color: var(--color-cream);
   text-align: left;
 }
 
 #services-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: var(--services-accent);
-  font-size: 11px;
-  font-weight: 600;
-  line-height: 1.5;
-  letter-spacing: 2px;
-}
-
-#services-header::before {
-  content: '';
-  width: 24px;
-  height: 2px;
-  flex-shrink: 0;
-  background: var(--services-accent);
+  color: var(--color-coral);
 }
 
 #services-title-container {
@@ -41,17 +22,13 @@
 #services-title {
   max-width: 540px;
   margin: 0;
-  color: var(--services-ink);
-  font-size: clamp(36px, 4.2vw, 56px);
-  font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: -0.045em;
+  color: var(--color-cream);
 }
 
 #services-subtitle {
   margin: 0;
   max-width: 420px;
-  color: var(--services-muted);
+  color: var(--color-muted-on-dark);
   font-size: 15px;
   line-height: 1.8;
 }
@@ -72,7 +49,7 @@
 
 #services-section .services-number {
   padding-top: 10px;
-  color: var(--services-accent);
+  color: var(--color-coral);
   font-size: 11px;
   line-height: 1.5;
   letter-spacing: 1px;
@@ -95,7 +72,7 @@
 
 #services-section .services-title {
   margin: 0;
-  color: var(--services-ink);
+  color: var(--color-cream);
   font-size: clamp(24px, 2.6vw, 32px);
   font-weight: 400;
   line-height: 1.25;
@@ -109,7 +86,7 @@
 #services-section .services-desc-text {
   display: block;
   margin: 0;
-  color: var(--services-muted);
+  color: var(--color-muted-on-dark);
   font-size: 14px;
   line-height: 1.8;
 }
@@ -127,7 +104,7 @@
   padding: 4px 10px;
   border: 1px solid #9badaa40;
   border-radius: 999px;
-  color: var(--services-muted);
+  color: var(--color-muted-on-dark);
   font-size: 10px;
   line-height: 1.5;
 }
@@ -137,7 +114,7 @@
   padding: 10px 0;
   border: 0;
   background: transparent;
-  color: var(--services-accent);
+  color: var(--color-coral);
   font: inherit;
   font-size: 12px;
   line-height: 1.5;
@@ -150,11 +127,11 @@
 }
 
 #services-section .services-learn-more-button:hover {
-  color: var(--services-ink);
+  color: var(--color-cream);
 }
 
 #services-section .services-learn-more-button:focus-visible {
-  outline: 2px solid var(--services-accent);
+  outline: 2px solid var(--color-coral);
   outline-offset: 4px;
   border-radius: 4px;
 }
@@ -177,7 +154,7 @@
 /* Keep each description beneath its title on phones. */
 @media (max-width: 760px) {
   #services-section {
-    padding: 64px 24px;
+    padding: 64px var(--page-gutter);
   }
 
   #services-title-container {
@@ -198,11 +175,5 @@
 
   #services-section .services-desc-container {
     grid-column: 2;
-  }
-}
-
-@media (max-width: 400px) {
-  #services-section {
-    padding-inline: 16px;
   }
 }

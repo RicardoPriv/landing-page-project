@@ -4,10 +4,9 @@
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 72px;
   box-sizing: border-box;
-  padding: 104px max(40px, calc((100% - 1130px) / 2));
-  background: #fffdf8;
-  color: #122c2c;
-  color-scheme: light;
+  padding: 104px var(--section-inset);
+  background: var(--color-cream);
+  color: var(--color-green);
   text-align: left;
 }
 
@@ -17,32 +16,13 @@
 }
 
 #about-slogan {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: #f26849;
-  font-size: 11px;
-  font-weight: 600;
-  line-height: 1.5;
-  letter-spacing: 2px;
-}
-
-#about-slogan::before {
-  content: '';
-  width: 24px;
-  height: 2px;
-  flex-shrink: 0;
-  background: #f26849;
+  color: var(--color-coral);
 }
 
 #about-title {
   max-width: 480px;
   margin: 24px 0 0;
-  color: #122c2c;
-  font-size: clamp(36px, 4.2vw, 56px);
-  font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: -0.045em;
+  color: var(--color-green);
 }
 
 #about-section #right-column {
@@ -63,7 +43,7 @@
 
 #about-sub-description {
   margin-top: 24px;
-  color: #62716b;
+  color: var(--color-muted);
   font-size: 15px;
   line-height: 1.8;
 }
@@ -85,16 +65,10 @@
   #about-section {
     grid-template-columns: 1fr;
     gap: 32px;
-    padding: 64px 24px;
+    padding: 64px var(--page-gutter);
   }
 
   #about-section #right-column {
     padding-top: 0;
-  }
-}
-
-@media (max-width: 400px) {
-  #about-section {
-    padding-inline: 16px;
   }
 }
