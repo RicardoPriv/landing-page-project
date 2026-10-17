@@ -57,7 +57,7 @@ html {
 #navigation ul {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: flex-end;
   gap: 12px 24px;
   margin: 0;
@@ -127,6 +127,17 @@ html {
 #navigation-toggle:focus-visible {
   outline: 2px solid var(--color-coral);
   outline-offset: 4px;
+}
+
+/* Keep the full navigation on one row on tablets. */
+@media (min-width: 761px) and (max-width: 1024px) {
+  #navigation ul {
+    gap: 16px;
+  }
+
+  #navigation #navigation-start-project {
+    padding-inline: 16px;
+  }
 }
 
 /* Mobile links open beneath the fixed header. */

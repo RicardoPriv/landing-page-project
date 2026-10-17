@@ -3,11 +3,8 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 72px;
-  box-sizing: border-box;
-  padding: 104px var(--section-inset);
   background: var(--color-cream);
   color: var(--color-green);
-  text-align: left;
 }
 
 #about-section #left-column,
@@ -54,18 +51,15 @@
   background: #dcded4;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   #about-section {
-    gap: 40px;
-    padding-block: 72px;
+    gap: 32px;
   }
 }
 
 @media (max-width: 760px) {
   #about-section {
     grid-template-columns: 1fr;
-    gap: 32px;
-    padding: 64px var(--page-gutter);
   }
 
   #about-section #right-column {

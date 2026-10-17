@@ -6,8 +6,7 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  box-sizing: border-box;
-  padding: 112px var(--page-gutter);
+  padding: var(--section-spacing) var(--page-gutter);
   background: var(--color-coral);
   color: var(--color-cream);
   text-align: center;
@@ -85,7 +84,6 @@
 }
 
 #contact-blurb {
-  display: block;
   max-width: 420px;
   margin-top: 20px;
   font-size: 11px;
@@ -93,17 +91,7 @@
   line-height: 1.7;
 }
 
-@media (max-width: 900px) {
-  #contact-section {
-    padding-block: 88px;
-  }
-}
-
 @media (max-width: 760px) {
-  #contact-section {
-    padding: 72px var(--page-gutter);
-  }
-
   #contact-section::before {
     top: -120px;
     width: 560px;
@@ -112,6 +100,17 @@
 
   #contact-title {
     margin: 28px 0 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  #contact-title {
+    font-size: clamp(36px, 9vw, 44px);
+  }
+
+  #contact-button {
+    gap: 12px;
+    padding-inline: 20px;
   }
 }
 

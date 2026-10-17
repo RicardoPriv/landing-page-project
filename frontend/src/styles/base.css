@@ -10,6 +10,7 @@
   --font-sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --content-width: 1130px;
   --page-gutter: 40px;
+  --section-spacing: clamp(28px, 5svh, 64px);
   --section-inset: max(var(--page-gutter), calc((100% - var(--content-width)) / 2));
 
   font: 18px/145% var(--font-sans);
@@ -38,12 +39,38 @@ p {
   margin: 0;
 }
 
+/* Allow long content to wrap instead of widening the page. */
+h1,
+h2,
+h3,
+p,
+blockquote {
+  overflow-wrap: anywhere;
+}
+
 #app {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
   width: 100%;
   min-height: 100svh;
+}
+
+/* Shared section sizing; each stylesheet controls its own layout and palette. */
+#hero-section,
+#about-section,
+#services-section,
+#testimonials-section,
+#contact-section,
+#footer-section {
+  box-sizing: border-box;
+  text-align: left;
+}
+
+#about-section,
+#services-section,
+#testimonials-section {
+  padding: var(--section-spacing) var(--section-inset);
 }
 
 /* Small labels above section headings. */
@@ -76,7 +103,7 @@ p {
 #about-title,
 #services-title,
 #testimonials-title {
-  font-size: clamp(36px, 4.2vw, 56px);
+  font-size: clamp(32px, min(4.2vw, 6svh), 52px);
   font-weight: 400;
   line-height: 1.1;
   letter-spacing: -0.045em;
@@ -84,6 +111,7 @@ p {
 
 @media (max-width: 1024px) {
   :root {
+    --page-gutter: 32px;
     font-size: 16px;
   }
 }
@@ -91,6 +119,12 @@ p {
 @media (max-width: 760px) {
   :root {
     --page-gutter: 24px;
+  }
+
+  #about-title,
+  #services-title,
+  #testimonials-title {
+    font-size: clamp(32px, 6vw, 44px);
   }
 }
 

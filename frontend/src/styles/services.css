@@ -1,10 +1,7 @@
 /* Service rows follow the reference's dark green section. */
 #services-section {
-  box-sizing: border-box;
-  padding: 104px var(--section-inset);
   background: var(--color-green);
   color: var(--color-cream);
-  text-align: left;
 }
 
 #services-header {
@@ -15,8 +12,8 @@
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
   align-items: end;
-  gap: 72px;
-  margin: 24px 0 48px;
+  gap: 40px;
+  margin: 16px 0 24px;
 }
 
 #services-title {
@@ -26,7 +23,6 @@
 }
 
 #services-subtitle {
-  margin: 0;
   max-width: 420px;
   color: var(--color-muted-on-dark);
   font-size: 15px;
@@ -43,7 +39,7 @@
   grid-template-columns: 40px minmax(0, 1.4fr) minmax(0, 1fr);
   align-items: start;
   gap: 32px;
-  padding: 40px 0;
+  padding: clamp(12px, 2svh, 20px) 0;
   border-bottom: 1px solid #9badaa40;
 }
 
@@ -84,18 +80,16 @@
 }
 
 #services-section .services-desc-text {
-  display: block;
-  margin: 0;
   color: var(--color-muted-on-dark);
   font-size: 14px;
-  line-height: 1.8;
+  line-height: 1.6;
 }
 
 #services-section .services-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin: 18px 0 8px;
+  margin: 8px 0 0;
   padding: 0;
   list-style: none;
 }
@@ -137,44 +131,66 @@
   border-radius: 4px;
 }
 
+/* Compact wide layouts on laptop-height screens. */
+@media (min-width: 901px) and (max-height: 800px) {
+  #services-section .services-container {
+    padding-block: clamp(10px, 1.5svh, 12px);
+  }
+}
+
+/* Tablet rows keep the number beside a full-width title and description. */
 @media (max-width: 900px) {
-  #services-section {
-    padding-block: 72px;
+  #services-title-container {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
   }
 
-  #services-title-container {
-    gap: 40px;
+  #services-subtitle {
+    max-width: 620px;
   }
 
   #services-section .services-container {
-    grid-template-columns: 24px minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: 28px minmax(0, 1fr);
     gap: 20px;
+  }
+
+  #services-section .services-desc-container {
+    grid-column: 2;
   }
 }
 
 /* Keep each description beneath its title on phones. */
 @media (max-width: 760px) {
-  #services-section {
-    padding: 64px var(--page-gutter);
-  }
-
   #services-title-container {
-    grid-template-columns: 1fr;
-    gap: 24px;
     margin-bottom: 32px;
   }
 
   #services-section .services-container {
     grid-template-columns: 24px minmax(0, 1fr);
     gap: 20px 16px;
-    padding-block: 32px;
+    padding-block: 20px;
   }
 
   #services-section .services-title-container {
     gap: 12px;
   }
+}
+
+@media (max-width: 400px) {
+  #services-section .services-container {
+    gap: 16px 12px;
+  }
+
+  #services-section .services-title-container img {
+    width: 30px;
+    height: 30px;
+  }
+
+  #services-section .services-title {
+    font-size: 22px;
+  }
 
   #services-section .services-desc-container {
-    grid-column: 2;
+    grid-column: 1 / -1;
   }
 }
