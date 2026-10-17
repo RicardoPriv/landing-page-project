@@ -102,37 +102,72 @@ html {
   background: #244747;
 }
 
-/* Keep links visible while the mobile menu behavior is still being built. */
+#navigation-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--color-green);
+  font: inherit;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+#navigation-toggle:hover {
+  color: var(--color-coral);
+}
+
+#navigation-toggle:focus-visible {
+  outline: 2px solid var(--color-coral);
+  outline-offset: 4px;
+}
+
+/* Mobile links open beneath the fixed header. */
 @media (max-width: 760px) {
   :root {
-    --header-height: 128px;
+    --header-height: 80px;
   }
 
   #app > header {
-    flex-wrap: wrap;
-    gap: 16px;
-    padding: 20px var(--page-gutter);
+    padding: 16px var(--page-gutter);
+  }
+
+  #navigation-toggle {
+    display: inline-flex;
   }
 
   #navigation {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    box-sizing: border-box;
     width: 100%;
+    max-height: calc(100svh - var(--header-height));
+    overflow-y: auto;
+    padding: 16px var(--page-gutter) 24px;
+    background: var(--color-cream);
+    box-shadow: 0 12px 20px #122c2c15;
+  }
+
+  #navigation.navigation-open {
+    display: block;
   }
 
   #navigation ul {
-    justify-content: flex-start;
-    gap: 8px 20px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
   }
-}
 
-/* Reserve a second navigation row on narrow phones. */
-@media (max-width: 480px) {
-  :root {
-    --header-height: 180px;
-  }
-}
-
-@media (max-width: 400px) {
-  #navigation ul {
-    gap: 8px 16px;
+  #navigation a {
+    width: 100%;
   }
 }

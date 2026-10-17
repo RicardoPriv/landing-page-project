@@ -6,6 +6,7 @@ import services from "./sections/services.html?raw"
 import testimonials from "./sections/testimonials.html?raw"
 import contact from "./sections/contact.html?raw"
 import footer from "./sections/footer.html?raw"
+import { setupMenu } from './js/menu.js'
 
 document.querySelector('#app').innerHTML = `
   ${header}
@@ -17,3 +18,4 @@ document.querySelector('#app').innerHTML = `
   ${footer}
 `
 
+setupMenu()
