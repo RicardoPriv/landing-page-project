@@ -110,15 +110,16 @@
 }
 
 #services-section .services-learn-more-button {
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
   min-height: 44px;
   padding: 10px 0;
-  border: 0;
-  background: transparent;
   color: var(--color-coral);
   font: inherit;
   font-size: 12px;
   line-height: 1.5;
-  cursor: pointer;
+  text-decoration: none;
 }
 
 #services-section .services-learn-more-button::after {

@@ -65,26 +65,26 @@ html {
   list-style: none;
 }
 
-#navigation button {
+#navigation a {
+  display: inline-flex;
+  align-items: center;
   box-sizing: border-box;
   min-height: 44px;
   padding: 8px 0;
-  border: 0;
-  background: transparent;
   color: var(--color-green);
   font: inherit;
   font-size: 13px;
   font-weight: 500;
   line-height: 1.4;
   white-space: nowrap;
-  cursor: pointer;
+  text-decoration: none;
 }
 
-#navigation button:hover {
+#navigation a:hover {
   color: var(--color-coral);
 }
 
-#navigation button:focus-visible {
+#navigation a:focus-visible {
   outline: 2px solid var(--color-coral);
   outline-offset: 5px;
   border-radius: 4px;

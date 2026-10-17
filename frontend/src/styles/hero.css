@@ -78,11 +78,12 @@
   margin-top: 36px;
 }
 
-#hero-nevigation-buttons button {
+#hero-nevigation-buttons a {
+  display: inline-flex;
+  align-items: center;
   box-sizing: border-box;
   min-height: 48px;
   padding: 16px 24px;
-  border: 0;
   border-radius: 999px;
   background: transparent;
   color: var(--color-cream);
@@ -90,7 +91,7 @@
   font-size: 13px;
   font-weight: 500;
   line-height: 1.4;
-  cursor: pointer;
+  text-decoration: none;
 }
 
 #hero-nevigation-buttons #hero-navigate-contact {
@@ -120,7 +121,7 @@
   color: var(--color-coral);
 }
 
-#hero-nevigation-buttons button:focus-visible {
+#hero-nevigation-buttons a:focus-visible {
   outline: 2px solid var(--color-coral);
   outline-offset: 4px;
 }
