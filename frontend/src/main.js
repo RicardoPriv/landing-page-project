@@ -7,6 +7,7 @@ import testimonials from "./sections/testimonials.html?raw"
 import contact from "./sections/contact.html?raw"
 import footer from "./sections/footer.html?raw"
 import { setupMenu } from './js/menu.js'
+import { setupAnimations } from './js/animations.js'
 
 document.querySelector('#app').innerHTML = `
   ${header}
@@ -19,3 +20,4 @@ document.querySelector('#app').innerHTML = `
 `
 
 setupMenu()
+setupAnimations()
