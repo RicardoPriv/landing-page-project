@@ -6,13 +6,14 @@ landing page assignment.
 
 ## Links
 
-- Repository: to be added
-- Live site: to be added
+- Repository: [RicardoPriv/landing-page-project](https://github.com/RicardoPriv/landing-page-project)
+- Deployed site: [Morrow](https://morrowlanding.netlify.app/)
 
 ## What's included
 
 - A fixed header with navigation and a mobile hamburger menu.
 - Hero, About, Services, Testimonials, Contact, and Footer sections.
+- Three service cards presented as rows and three client testimonials.
 - Smooth scrolling between sections.
 - Different scroll-triggered animations for each section.
 - Layouts that adjust for phones, tablets, and desktops.
@@ -73,20 +74,6 @@ The sections are kept in separate HTML files and imported through Vite's `?raw`
 imports. Shared colors, typography, and spacing live in `base.css`; each section
 has its own stylesheet.
 
-## Deployment
-
-For a static host, use `frontend` as the project directory, `npm run build` as
-the build command, and `dist` as the publish directory.
-
-The current asset paths assume the site is hosted at the domain root. Hosting
-under a repository subpath, such as GitHub Pages, needs matching Vite base and
-asset-path configuration.
-
-## Checks
-
-The production build passes. Browser checks covered phone, tablet, laptop, and
-desktop sizes, including horizontal overflow and mobile menu interactions.
-
-On small screens, sections with more content remain scrollable rather than
-being forced into one screen. The contact details are fictional, and the social
-links currently point to the platforms' homepages.
+The five content sections sit inside a semantic `main` element, with the site
+header and footer outside it. Comments explain the less obvious behavior and
+layout choices across the JavaScript, HTML, and CSS.
