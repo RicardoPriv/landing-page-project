@@ -1,6 +1,6 @@
-/* Two editorial columns on desktop, stacked on mobile. */
 #about-section {
   display: grid;
+  /* Zero minimums allow the columns to shrink around wrapping text. */
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 72px;
   background: var(--color-cream);

@@ -1,4 +1,5 @@
 import './style.css'
+// Vite imports each HTML section as a string at build time using ?raw.
 import header from "./sections/header.html?raw"
 import hero from "./sections/hero.html?raw"
 import about from "./sections/about.html?raw"
@@ -11,13 +12,16 @@ import { setupAnimations } from './js/animations.js'
 
 document.querySelector('#app').innerHTML = `
   ${header}
-  ${hero}
-  ${about}
-  ${services}
-  ${testimonials}
-  ${contact}
+  <main>
+    ${hero}
+    ${about}
+    ${services}
+    ${testimonials}
+    ${contact}
+  </main>
   ${footer}
 `
 
+// Attach interactions after inserting the sections so their elements exist.
 setupMenu()
 setupAnimations()

@@ -1,4 +1,4 @@
-/* One featured quote beside two smaller cards, as in the prototype. */
+/* The featured quote fills the left column; the two supporting cards share the right. */
 #testimonials-section {
   display: grid;
   grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
@@ -22,7 +22,6 @@
   text-wrap: balance;
 }
 
-/* Keep the testimonial column layout scoped to this section. */
 #testimonials-section > #testimonials-left-column,
 #testimonials-section > #testimonials-right-column {
   min-width: 0;
@@ -97,6 +96,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  /* Push author details to the bottom even when quote lengths differ. */
   margin-top: auto;
 }
 
@@ -142,7 +142,7 @@
   color: var(--color-muted-on-dark);
 }
 
-/* Give supporting quotes more width on shorter laptop screens. */
+/* Give supporting quotes more width and reduce spacing on short desktop screens. */
 @media (min-width: 901px) and (max-height: 800px) {
   #testimonials-section {
     grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
@@ -166,7 +166,7 @@
   }
 }
 
-/* Tablet: featured quote above two equally sized supporting cards. */
+/* Place the featured card above two supporting cards; stack those too below 760px. */
 @media (max-width: 900px) {
   #testimonials-section {
     grid-template-columns: minmax(0, 1fr);

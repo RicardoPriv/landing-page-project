@@ -1,9 +1,11 @@
+// Connect the mobile dropdown controls and keep keyboard focus usable when it closes.
 export function setupMenu() {
   const navigationToggle = document.querySelector('#navigation-toggle')
   const navigationIcon = document.querySelector('#navigation-toggle-icon')
   const navigation = document.querySelector('#navigation')
   const mobileViewport = window.matchMedia('(max-width: 760px)')
 
+  // Update the visible menu, accessible state, label, and icon together.
   function setMenuOpen(isOpen) {
     navigation.classList.toggle('navigation-open', isOpen)
     navigationToggle.setAttribute('aria-expanded', String(isOpen))
@@ -19,7 +21,7 @@ export function setupMenu() {
     setMenuOpen(!isOpen)
   })
 
-  // Keep native anchor scrolling, then collapse the mobile links.
+  // Let the anchor navigate normally and return focus to the toggle when closing.
   navigation.addEventListener('click', (event) => {
     if (mobileViewport.matches && event.target.closest('a')) {
       setMenuOpen(false)
@@ -35,7 +37,7 @@ export function setupMenu() {
     }
   })
 
-  // Reset the dropdown when switching between mobile and desktop layouts.
+  // Match the CSS breakpoint and move focus if its current control becomes hidden.
   mobileViewport.addEventListener('change', () => {
     const focusedElement = document.activeElement
     setMenuOpen(false)

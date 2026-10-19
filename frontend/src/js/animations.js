@@ -1,6 +1,7 @@
 export function setupAnimations() {
   const preferReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
+  // Leave content visible without entrance effects when reduced motion is requested.
   if (preferReducedMotion) return
 
   animateHero()
@@ -18,8 +19,8 @@ function animateHero() {
   ], { duration: 1000 })
 }
 
+// Slide the story columns inward and reveal their divider independently.
 function animateAbout() {
-  // Bring the two halves of the story together from opposite sides.
   animateOnScroll('#about-section > div', (element, index) => [
     { opacity: 0, transform: `translateX(${index === 0 ? -16 : 16}px)` },
     { opacity: 1, transform: 'translateX(0)' }
@@ -31,8 +32,8 @@ function animateAbout() {
   ], { duration: 1100, delay: 200 })
 }
 
+// Fade the section headings, then uncover each service row from left to right.
 function animateServices() {
-  // Uncover the service rows from left to right, like opening a brief.
   animateOnScroll('#services-header, #services-title-container', [
     { opacity: 0 },
     { opacity: 1 }
@@ -44,26 +45,26 @@ function animateServices() {
   ], { duration: 1200, stagger: 120, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' })
 }
 
+// Give successive cards opposite starting tilts before they settle into place.
 function animateTestimonials() {
   animateOnScroll('#testimonials-header, #testimonials-title', [
     { opacity: 0 },
     { opacity: 1 }
   ], { duration: 900, stagger: 100 })
 
-  // Cards settle into place with alternating, very slight tilts.
   animateOnScroll('.testimonial-card', (element, index) => [
     { opacity: 0, transform: `scale(0.96) rotate(${index % 2 === 0 ? -0.7 : 0.7}deg)` },
     { opacity: 1, transform: 'scale(1) rotate(0deg)' }
   ], { duration: 1050, stagger: 140, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' })
 }
 
+// Combine a headline reveal with an overshoot on the email link.
 function animateContact() {
   animateOnScroll('#contact-header, #contact-blurb', [
     { opacity: 0 },
     { opacity: 1 }
   ], { duration: 900 })
 
-  // Reveal the headline upward, then give the email CTA a small pop.
   animateOnScroll('#contact-title', [
     { clipPath: 'inset(0 0 100% 0)', transform: 'translateY(18px)' },
     { clipPath: 'inset(0 0 0% 0)', transform: 'translateY(0)' }
@@ -76,8 +77,8 @@ function animateContact() {
   ], { duration: 800, delay: 150 })
 }
 
+// Stagger the columns and animate the divider and copyright separately.
 function animateFooter() {
-  // A quiet finish: fade across the columns, then draw the closing rule.
   animateOnScroll('#footer-links-container > div', [
     { opacity: 0 },
     { opacity: 1 }
@@ -94,24 +95,28 @@ function animateFooter() {
   ], { duration: 900, delay: 200 })
 }
 
-// Reveal each content block once when it enters the viewport.
-// Section backgrounds and layout stay in place throughout the animation.
+// Observe matching blocks and play each entrance once. Keyframes can be an array
+// or a function of the element and its position; options override the default timing.
 function animateOnScroll(selector, keyframes, { stagger = 0, ...animationOptions } = {}) {
+  // Older browsers retain the normal visible content if observation is unavailable.
   if (!('IntersectionObserver' in window)) return
 
   const elements = document.querySelectorAll(selector)
   const observer = new IntersectionObserver((entries) => {
+    // Restart the stagger for each observer callback so new arrivals wait only for this batch.
     let visibleIndex = 0
 
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return
 
       const element = entry.target
+      // Stop observing before animating so scrolling back cannot replay the entrance.
       observer.unobserve(element)
 
-      // Keep a block visible if someone has already tabbed into it.
+      // Skip the effect if focus is already inside; its initial frame could hide a control in use.
       if (element.contains(document.activeElement)) return
 
+      // Use the original document order for effects such as alternating card tilts.
       const elementIndex = Array.from(elements).indexOf(element)
       const elementKeyframes = typeof keyframes === 'function'
         ? keyframes(element, elementIndex)
@@ -122,6 +127,7 @@ function animateOnScroll(selector, keyframes, { stagger = 0, ...animationOptions
         {
           duration: 750,
           easing: 'ease-out',
+          // Apply the first frame during the delay, then release styles when the animation ends.
           fill: 'backwards',
           ...animationOptions,
           delay: (animationOptions.delay ?? 0) + visibleIndex * stagger
